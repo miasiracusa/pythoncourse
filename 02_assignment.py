@@ -2,15 +2,20 @@
 Assignment #2
 
 1. Add / modify code ONLY between the marked areas (i.e. "Place code below")
-2. Run the associated test harness for a basic check on completeness. A successful run of the test cases does not guarantee accuracy or fulfillment of the requirements. Please do not submit your work if test cases fail.
+2. Run the associated test harness for a basic check on completeness. A successful run of the test cases does not 
+    guarantee accuracy or fulfillment of the requirements. Please do not submit your work if test cases fail.
 3. To run unit tests simply use the below command after filling in all of the code:
-    python 01_assignment.py
+    python 07_assignment.py
   
 4. Unless explicitly stated, please do not import any additional libraries but feel free to use built-in Python packages
 5. Submissions must be a Python file and not a notebook file (i.e *.ipynb)
-6. Do not use global variables
-7. Make sure your work is committed to your master branch
+6. Do not use global variables unless stated to do so
+7. Make sure your work is committed to your master branch in Github
 
+
+Installation requirements:
+
+1. Please install numpy: pip install numpy
 
 '''
 import math
@@ -41,7 +46,10 @@ def exercise02():
 
 
 def exercise03():
-    # Reorganize the countdown list below in descending order and return the value of the 5th element in the sorted countdown list
+    # Programmatically reorganize the countdown list below in descending order and return the value of the 5th element in the sorted countdown list.
+    # The 5th element will be stored in the variable the_fifth_element, which currently below has a dummy value of -999.
+    # Remember, the index number of the 5th element is not 5
+    
     countdown = [9, 8, 7, 5, 4, 2, 1, 6, 10, 3, 0, -5]
     the_fifth_element = -999
 
@@ -98,32 +106,25 @@ def exercise06(n):
 
 
 def exercise07(n):
-    # This function looks for duplicates in list n. If there is a duplicate False is returned. If there are no duplicates True is returned.
+    # This function looks for duplicates in list n. If there is a duplicate True is returned. If there are no duplicates False is returned.
 
     # ------ Place code below here \/ \/ \/ ------
 
 
     # ------ Place code above here /\ /\ /\ ------
 
-# Exercise 8
-# Create a function called display_menu that receives an argument called menu. The function should do the following:
-# 1. Verify that menu is in fact a tuple. If it isnt, return back -1.
-# 2. Determine the number of elements in menu
-# 3. Loops through menu & enumerate through to the a menu to the screen. The test case will describe what the menu items are. The enumeration should be generate by code and not hardcoded.
-# 4. Using input(), asks the user to select a menu item by entering a number and hitting Enter 
-# 5. Validates if the number entered is a valid menu option and asks user to retry if number is not valid or is not a number / int
-# 6. An exit menu option should be added at the end of the displayed list of menu options allowing the user to exit selecting a menu causing the display_menu() function to return back the number of the last menu option chosen prior to exit and also return the length of menu
-# 7. If a valid menu option is chosen, call a function named similarly to the menu option that prints the menu option chosen i.e. def buy_burger() prints('Burger bought!')
-# 8. The menu options should repeatedly be displayed after each selection (and appropriate delegate function is called) until user selects exist
 
 # ------ Place code below here \/ \/ \/ ------
 
+def exercise08(s):
+    # This function receives a string. The string should be casted to an int and then a float and returns each separately
 
+    return int_s, float_s
 
 # ------ Place code above here /\ /\ /\ ------
 
 def exercise09():
-    # Compile a list of 10 random URLs of dog pics
+    # Compile a list of 11 random URLs of dog pics. You will simply APPEND the dogs list with URLs of pics so that the list contains 11 URLs. This means you will extract the URL and insert into the list dogs.
 
     dogs = []
     url = 'https://random.dog/woof.json'
@@ -149,6 +150,7 @@ def exercise10(sentence):
 
     # ------ Place code above here /\ /\ /\ ------
     return reversed
+
 
 
 class TestAssignment2(unittest.TestCase):
@@ -213,21 +215,10 @@ class TestAssignment2(unittest.TestCase):
 
     def test_exercise07(self):
         print('Testing exercise 7')
-        self.assertTrue(exercise07([1, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10]) == False)
-        self.assertTrue(exercise07([1, 2, 3, 4, 5, 6, 7, 8, 9, 10]) == True)
-        self.assertTrue(exercise07([1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 10]) == False)
-        self.assertTrue(exercise07([1, 2.00002, 2.00001, 4, 5, 6, 7, 8, 9, 10]) == True)
-
-    def test_exercise08(self):
-        print('Testing exercise 8')
-        menu = ['Buy Bitcoin','Buy Ethereum','Sell Bitcoin','Sell Ethereum']
-        r, l = display_menu(menu)
-        self.assertEqual(r,-1)
-        self.assertEqual(l,4)
-        menu = ('Buy Bitcoin','Buy Ethereum','Sell Bitcoin','Sell Ethereum')
-        r, l = display_menu(menu)
-        self.assertTrue(r > 0)
-        self.assertEqual(l,4)
+        self.assertTrue(exercise07([1, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10]) == True)
+        self.assertTrue(exercise07([1, 2, 3, 4, 5, 6, 7, 8, 9, 10]) == False)
+        self.assertTrue(exercise07([1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 10]) == True)
+        self.assertTrue(exercise07([1, 2.00002, 2.00001, 4, 5, 6, 7, 8, 9, 10]) == False)
     
     def test_exercise09(self):
         print('Testing exercise 9')
